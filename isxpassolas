@@ -1,0 +1,46 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  
+}
+let cor;
+let circuloX; // horizontal
+let circuloY; // vertical
+
+function setup() {
+  createCanvas(600, 600);
+  background(color(100, 0 , 0));
+  cor = color(random(0, 255), random(0, 255), random(0, 255));
+  
+ textSize (30);
+ textFont("Arial");
+  textAlign (CENTER,CENTER);
+  
+  circuloX = [0, 0, 0];
+  circuloY = [random(height), random(height), random(height)];
+}
+
+function draw() {
+  text("meu primeiro projeto com javascript",300,50)
+  text ("Aluna:Isabelly Passos",300,80)
+  
+  fill(cor);
+  
+  for(let contador in circuloX) {
+    circle(circuloX[contador], circuloY[contador], 50);    
+    circuloX[contador]+= random(0,3);
+    circuloY[contador]+= random(-3,3); 
+    
+    if(circuloX[contador] >= width){
+      circuloX[contador] = 0;
+      circuloY[contador] = random(height);
+    }
+  }
+  
+  if(mouseIsPressed){
+    cor = color(random(0, 255), random(0, 255), random(0, 255), random(0, 100));
+  }
+}
